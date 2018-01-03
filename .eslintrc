@@ -1,0 +1,16 @@
+{
+  "env": {
+    "node": true,
+    "commonjs": true,
+    "es6": true,
+    "mocha": true
+  },
+  "plugins": [
+    "standard",
+    "mocha"
+  ],
+  "extends": [
+    "standard",
+    "plugin:mocha/recommended"
+  ]
+}

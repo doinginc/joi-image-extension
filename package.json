@@ -12,7 +12,16 @@
     "size"
   ],
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "build": "rimraf ./lib && babel ./src --out-dir lib",
+    "coverage": "NODE_ENV=test multi='spec=- mocha-junit-reporter=-' nyc --check-coverage --reporter=text-summary mocha --reporter mocha-multi",
+    "lint": "eslint .",
+    "mocha": "NODE_ENV=test mocha",
+    "prepare": "npm run build",
+    "test": "npm run -s lint && npm run -s coverage",
+    "watch:build": "nodemon --exec 'npm run -s build' -w src",
+    "watch:coverage": "nodemon --exec 'npm run -s coverage' -w src -w test",
+    "watch:mocha": "nodemon --exec 'npm run -s mocha' -w src -w test",
+    "watch:test": ""
   },
   "author": "chris@doing.io",
   "license": "ISC",
@@ -20,9 +29,56 @@
     "joi": ">=10.6.0"
   },
   "devDependencies": {
-    "joi": "^10.6.0"
+    "babel-cli": "^6.26.0",
+    "babel-plugin-istanbul": "^4.1.5",
+    "babel-preset-env": "^1.6.1",
+    "babel-register": "^6.26.0",
+    "chai": "^4.1.2",
+    "eslint": "^4.14.0",
+    "eslint-config-standard": "^11.0.0-beta.0",
+    "eslint-plugin-import": "^2.8.0",
+    "eslint-plugin-mocha": "^4.11.0",
+    "eslint-plugin-node": "^5.2.1",
+    "eslint-plugin-promise": "^3.6.0",
+    "eslint-plugin-standard": "^3.0.1",
+    "joi": "^10.6.0",
+    "mocha": "^4.1.0",
+    "mocha-junit-reporter": "^1.15.0",
+    "mocha-multi": "^0.11.1",
+    "nodemon": "^1.14.7",
+    "nyc": "^11.4.1",
+    "rimraf": "^2.6.2"
   },
   "dependencies": {
     "image-size": "^0.6.1"
+  },
+  "nyc": {
+    "require": [
+      "babel-register"
+    ],
+    "sourceMap": false,
+    "instrument": false,
+    "statements": 80,
+    "branches": 80,
+    "functions": 80,
+    "lines": 80,
+    "watermarks": {
+      "statements": [
+        80,
+        95
+      ],
+      "branches": [
+        80,
+        95
+      ],
+      "functions": [
+        80,
+        95
+      ],
+      "lines": [
+        80,
+        95
+      ]
+    }
   }
 }

@@ -1,15 +1,5 @@
 const imageSize = require('image-size')
 
-
-/*
-allow
-minDimensions
-minHeight
-minWidth
-*/
-
-
-
 module.exports = Joi => {
   // Validation for width/height parameters
 
@@ -35,7 +25,7 @@ module.exports = Joi => {
       minDimensions: 'must be at least {{minWidth}} pixels in width and {{minHeight}} pixels in height',
       maxDimensions: 'must be no more than {{minWidth}} pixels in width and {{minHeight}} pixels in height',
       allowTypes: 'must be one of the following types: {{allowedTypes}}',
-      disallowTypes: 'must be one of the following types: {{allowedTypes}}',
+      disallowTypes: 'must be one of the following types: {{allowedTypes}}'
     },
 
     coerce (value, state, options) {
