@@ -12,16 +12,19 @@
     "size"
   ],
   "scripts": {
+    "browsersync:coverage": "browser-sync start --port 1337 --startPath 'lcov-report' --server coverage --files 'coverage/**/*.*'",
     "build": "rimraf ./lib && babel ./src --out-dir lib",
-    "coverage": "NODE_ENV=test multi='spec=- mocha-junit-reporter=-' nyc --check-coverage --reporter=text-summary mocha --reporter mocha-multi",
+    "coverage": "NODE_ENV=test multi='spec=- mocha-junit-reporter=-' nyc --reporter=lcov mocha --reporter mocha-multi",
+    "check-coverage": "nyc report --reporter=text-summary && nyc check-coverage",
     "lint": "eslint .",
     "mocha": "NODE_ENV=test mocha",
     "prepare": "npm run build",
-    "test": "npm run -s lint && npm run -s coverage",
+    "test": "npm run -s lint && npm run -s coverage && npm run -s check-coverage",
     "watch:build": "nodemon --exec 'npm run -s build' -w src",
-    "watch:coverage": "nodemon --exec 'npm run -s coverage' -w src -w test",
+    "watch:coverage": "nodemon --exec 'npm run -s coverage && npm run -s check-coverage' -w src -w test",
+    "watch:lint": "nodemon --exec 'npm run -s lint' -w src -w test",
     "watch:mocha": "nodemon --exec 'npm run -s mocha' -w src -w test",
-    "watch:test": ""
+    "watch:test": "nodemon --exec 'npm run -s test' -w src -w test"
   },
   "author": "chris@doing.io",
   "license": "ISC",
@@ -80,5 +83,8 @@
         95
       ]
     }
+  },
+  "optionalDependencies": {
+    "browser-sync": "^2.23.2"
   }
 }
