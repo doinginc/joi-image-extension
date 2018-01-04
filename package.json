@@ -28,6 +28,15 @@
   },
   "author": "chris@doing.io",
   "license": "ISC",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/doinginc/joi-image-extension.git"
+  },
+  "license": "UNLICENSED",
+  "bugs": {
+    "url": "https://github.com/doinginc/joi-image-extension/issues"
+  },
+  "homepage": "https://github.com/doinginc/joi-image-extension#readme",
   "peerDependencies": {
     "joi": ">=10.6.0"
   },
