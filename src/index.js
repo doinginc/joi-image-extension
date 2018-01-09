@@ -28,7 +28,7 @@ module.exports = Joi => {
       disallowTypes: 'must be one of the following types: {{allowedTypes}}'
     },
 
-    coerce (value, state, options) {
+    pre (value, state, options) {
       // Cache the image size read in case we're checking multiple rules
       this._image = imageSize(value)
       return value
