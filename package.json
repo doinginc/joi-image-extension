@@ -1,5 +1,5 @@
 {
-  "name": "joi-image-extensions",
+  "name": "joi-image-extension",
   "version": "0.1.0",
   "description": "Joi image validation extension",
   "main": "lib/index.js",
