@@ -26,4 +26,4 @@
 
 - [ ] Is there appropriate test coverage? (~80% coverage)
 - [ ] Is the README appropriately updated?
-- [ ] Are there breaking changes? Has a representative from each affected team signed-off?
+- [ ] Are there breaking changes? Please add notes about what they are and why the change is necessary.

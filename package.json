@@ -3,6 +3,11 @@
   "version": "0.1.0",
   "description": "Joi image validation extension",
   "main": "lib/index.js",
+  "files": [
+    "lib/*",
+    "src/*",
+    "test/*"
+  ],
   "keywords": [
     "joi",
     "validation",
@@ -27,12 +32,11 @@
     "watch:test": "nodemon --exec 'npm run -s test' -w src -w test"
   },
   "author": "chris@doing.io",
-  "license": "ISC",
+  "license": "MIT",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/doinginc/joi-image-extension.git"
   },
-  "license": "UNLICENSED",
   "bugs": {
     "url": "https://github.com/doinginc/joi-image-extension/issues"
   },
