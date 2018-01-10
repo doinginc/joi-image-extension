@@ -31,7 +31,7 @@
     "watch:mocha": "nodemon --exec 'npm run -s mocha' -w src -w test",
     "watch:test": "nodemon --exec 'npm run -s test' -w src -w test"
   },
-  "author": "chris@doing.io",
+  "author": "doing-development@doing.io",
   "license": "MIT",
   "repository": {
     "type": "git",
